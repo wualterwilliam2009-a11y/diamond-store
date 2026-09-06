@@ -3230,17 +3230,239 @@ function registerAccumulativeOrder(playerId){
     saveAccum(data);
     updateAccumSummary();
     return {before:completed?promo.target-1:data.counts[d]-1, after:completed?promo.target:data.counts[d], target:promo.target, completed, reward:promo.reward};
-}
 
 /* Códigos entregados por la tienda.
    Para que un código sea aceptado, agrégalo aquí antes de publicar la página.
-   La recompensa solo se puede canjear si el cliente ya completó la promoción en este dispositivo. */
-const VALID_REDEEM_CODES={
-    // Ejemplo de código emitido por la tienda:
-    // 'DS-300-ABC123':{rewardDiamonds:300,label:'300 DIAMANTES EXTRA'},
-    // 'DS-500-ABC123':{rewardDiamonds:500,label:'500 DIAMANTES EXTRA'},
-    // 'DS-1000-ABC123':{rewardDiamonds:1000,label:'1 RECARGA DE 1.000 DIAMANTES'}
-};
+   La recompensa solo se puede canjear si el cliente ya completó la promoción en este dispositivo 
+   const VALID_REDEEM_CODES = {
+
+    // ==========================================
+    // 10 RECARGAS DE 100 💎 → 300 💎 EXTRA
+    // ==========================================
+
+    "DS100-A7K2P9": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-B4M8Q2": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-C9R3X7": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-D5T1N8": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-E2V6L4": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-F8J5W3": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-G3P9Z6": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-H6Q2Y5": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-J1K7M4": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+    "DS100-L5N8R2": {
+        rewardDiamonds: 300,
+        sourceDiamonds: 100,
+        target: 10,
+        label: "300 DIAMANTES EXTRA"
+    },
+
+
+    // ==========================================
+    // 10 CÓDIGOS → 500 💎 EXTRA
+    // PROMO: 6 RECARGAS DE 1.000
+    // ==========================================
+
+    "DS1000-A8F3K7": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-B2M9Q5": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-C7R4X1": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-D6T8N3": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-E9V2L6": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-F4J7W8": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-G5P1Z9": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-H3Q6Y2": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-J8K4M5": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+    "DS1000-L2N7R4": {
+        rewardDiamonds: 500,
+        sourceDiamonds: 1000,
+        target: 6,
+        label: "500 DIAMANTES EXTRA"
+    },
+
+
+    // ==========================================
+    // 10 CÓDIGOS → 1.000 💎 EXTRA
+    // PROMO: 5 RECARGAS DE 5.000
+    // ==========================================
+
+    "DS5000-A3K8P6": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-B7M2Q9": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-C4R6X1": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-D9T3N7": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-E5V8L2": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-F1J4W9": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-G6P2Z8": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-H8Q5Y3": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-J2K9M6": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    },
+
+    "DS5000-L7N1R5": {
+        rewardDiamonds: 1000,
+        sourceDiamonds: 5000,
+        target: 5,
+        label: "1.000 DIAMANTES EXTRA"
+    }
+
+}:
 
 function redeemCode(){
     const input=document.getElementById('redeemCode');
